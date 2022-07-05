@@ -414,6 +414,49 @@ body {
     font-weight: bold;
   }
 }
+/* conversation */
+.talk {
+  background-image: url(../imgs/start1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+  width: 100%;
+  overflow: hidden;
+}
+.converse {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto auto;
+  row-gap: 20px;
+  width: 100%;
+  margin: 40px 20px 40px 50px;
+}
+.detail {
+  width: 400px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 4px 2px var(--black);
+  background: rgba(0, 0, 0, 0.1);
+}
+.detail img {
+  width: 45%;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 4px 0 var(--black);
+}
+.detail p {
+  width: 55%;
+  font-size: 15px;
+  font-weight: bold;
+  color: var(--gold);
+  text-align: center;
+  padding-right: 15px;
+}
 
 /* STYLING FOR MAIN END */
 
