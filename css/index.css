@@ -84,6 +84,40 @@ body {
   font-weight: 500;
   color: var(--gold);
 }
+/* Media query for navbar section */
+@media screen and (max-width: 480px) {
+  .navbar .logo {
+    margin: 7px;
+  }
+  .navbar .logo .log {
+    margin: 7px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  .navbar .logo .go {
+    font-size: 14px;
+    font-weight: 800;
+    padding-right: 3px;
+  }
+  .chats a {
+    font-size: 25px;
+    font-weight: 500;
+    color: var(--black);
+  }
+  .bxs-envelope {
+    margin-right: 10px;
+  }
+  .bxs-envelope:hover,
+  .bxl-whatsapp:hover {
+    font-size: 30px;
+    color: var(--white);
+  }
+  .menubtn {
+    width: 30px;
+    height: 27px;
+    border-radius: 2px;
+  }
+}
 /* STYLING FOR NAVBAR END*/
 
 /* STYLING FOR SIDEBAR START*/
@@ -98,6 +132,7 @@ body {
   left: 0;
   padding: 6px 8px;
   transition: all 0.5s ease;
+  z-index: 99;
 }
 .sidebar.active {
   width: 250px;
@@ -248,6 +283,35 @@ body {
   color: var(--gold);
 }
 
+/* Media query for started section */
+@media screen and (max-width: 900px) {
+  .started .chizzy {
+    color: var(--white);
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .started .couture {
+    margin-left: -10px;
+    color: var(--gold);
+    font-weight: 900;
+    font-size: 30px;
+  }
+  .started .down {
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    height: 40px;
+    color: var(--gold);
+    font-size: 14px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
+
 /* ABOUT */
 .head {
   display: flex;
@@ -279,6 +343,7 @@ body {
   width: 100%;
   height: 500px;
   position: relative;
+  overflow: hidden;
 }
 .about img {
   margin: 20px 10px 10px 30px;
@@ -307,5 +372,87 @@ body {
   font-weight: bold;
   box-shadow: 0 0 5px 2px var(--black);
 }
+/* Media query for about section */
+@media screen and (max-width: 1000px) {
+  .head {
+    font-size: 20px;
+    font-weight: bold;
+    width: 100%;
+    height: 105px;
+  }
+  .head:hover {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+  }
+  .about img {
+    float: none;
+  }
+  .about .about-text {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    height: 400px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 100%;
+    overflow: hidden;
+    color: var(--gold);
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
 
 /* STYLING FOR MAIN END */
+
+/* Media query for sidebar and main section */
+@media screen and (max-width: 700px) {
+  .sidebar {
+    width: 85px;
+    background-color: var(--black);
+    box-shadow: 3px 0 5px 0 var(--black);
+    height: 100%;
+    transition: 0.5s ease;
+    position: fixed;
+    top: 50px;
+    left: 0;
+    padding: 6px 8px;
+    transition: all 0.5s ease;
+    z-index: 99;
+    scale: 0;
+    pointer-events: none;
+  }
+  .sidebar.active {
+    width: 250px;
+    opacity: 0.7;
+    scale: 1;
+    z-index: 99;
+  }
+  .main {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 50px;
+    z-index: -1;
+    background: rgba(243, 239, 239, 0.3);
+    transition: all 0.5s ease;
+  }
+  .sidebar.active ~ .main {
+    width: 100%;
+    left: 0px;
+    z-index: -1;
+  }
+}
