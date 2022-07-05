@@ -39,47 +39,57 @@
         <li class="item">
           <a href="">
             <i class="bx bx-detail"></i>
-            <span class="about">About US</span>
+            <span class="text">About US</span>
           </a>
           <span class="tool">About US</span>
         </li>
         <li class="item">
           <a href="">
             <i class="bx bx-message-dots"></i>
-            <span class="converse">Conversation</span>
+            <span class="text">Conversation</span>
           </a>
           <span class="tool">Conversation</span>
         </li>
         <li class="item">
           <a href="">
             <i class="bx bxs-graduation"></i>
-            <span class="academy">Academy</span>
+            <span class="text">Academy</span>
           </a>
           <span class="tool">Academy</span>
         </li>
         <li class="item">
           <a href="">
             <i class="bx bxs-cart"></i>
-            <span class="store">Store</span>
+            <span class="text">Store</span>
           </a>
           <span class="tool">Store</span>
         </li>
         <li class="item">
           <a href="">
             <i class="bx bxl-blogger"></i>
-            <span class="blog">Blog</span>
+            <span class="text">Blog</span>
           </a>
           <span class="tool">Blog</span>
         </li>
         <li class="item">
           <a href="">
             <i class="bx bx-phone-call"></i>
-            <span class="contact">Contact Us</span>
+            <span class="text">Contact Us</span>
           </a>
           <span class="tool">Contact Us</span>
         </li>
       </ul>
     </div>
     <!-- SIDEBAR END -->
+
+    <!-- Javascript code-->
+    <script>
+      let btn = document.querySelector(".menubtn");
+      let sidebar = document.querySelector(".sidebar");
+
+      btn.onclick = function () {
+        sidebar.classList.toggle("active");
+      };
+    </script>
   </body>
 </html>
