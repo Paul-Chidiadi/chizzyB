@@ -216,9 +216,39 @@ body {
   background: rgba(243, 239, 239, 0.3);
   transition: all 0.5s ease;
 }
+.arrow {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 150px;
+  bottom: 50px;
+  z-index: 99;
+  box-shadow: 0 0 5px 4px var(--black);
+  transition: all 0.3s ease;
+}
+.arrow:hover {
+  background-color: var(--gold);
+  width: 75px;
+  height: 75px;
+}
+.arrow a {
+  text-decoration: none;
+}
+.arrow a i {
+  font-size: 50px;
+  color: var(--white);
+}
 .sidebar.active ~ .main {
   width: calc(100% - 250px);
   left: 250px;
+}
+.sidebar.active ~ .main .arrow {
+  left: 350px;
 }
 .started {
   background-image: url(../imgs/start6.jpg);
@@ -343,11 +373,12 @@ body {
   position: relative;
   overflow: hidden;
 }
-.about img {
+.about i {
   margin: 20px 10px 10px 30px;
-  width: 400px;
-  height: 400px;
-  border-radius: 20px;
+  font-size: 60px;
+  font-weight: 500;
+  text-align: center;
+  color: var(--gold);
   float: left;
 }
 .about .about-text {
@@ -392,7 +423,7 @@ body {
     height: fit-content;
     position: relative;
   }
-  .about img {
+  .about i {
     margin: auto;
     margin-top: 10px;
     float: none;
@@ -409,12 +440,6 @@ body {
     text-align: center;
     font-size: 12px;
     font-weight: bold;
-  }
-}
-@media screen and (max-width: 450px) {
-  .about img {
-    width: 280px;
-    height: 280px;
   }
 }
 
@@ -542,6 +567,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 .hello_text .first {
   font-size: 20px;
@@ -577,7 +603,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 5px 3px var(--black);
   text-decoration: none;
   width: 60%;
@@ -585,6 +611,7 @@ body {
   border-radius: 10px;
   height: 110px;
   background-color: none;
+  overflow: hidden;
   transition: all 0.4s ease-in-out;
 }
 .links .wrap a:hover {
@@ -596,6 +623,30 @@ body {
   font-size: 15px;
   font-weight: bold;
   text-align: center;
+}
+
+/* Media query for store section */
+@media screen and (max-width: 455px) {
+  .hello_text .first {
+    font-size: 15px;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .hello_text .second {
+    font-size: 30px;
+    color: var(--gold);
+    font-weight: bold;
+  }
+  .links .wrap a p {
+    color: var(--white);
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .hello img {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 /* STYLING FOR MAIN END */
@@ -637,5 +688,20 @@ body {
     width: 100%;
     left: 0px;
     z-index: -1;
+    pointer-events: none;
+  }
+  .arrow {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    left: 50px;
+  }
+  .arrow:hover {
+    width: 50px;
+    height: 50px;
+  }
+  .sidebar.active ~ .main .arrow {
+    left: 150px;
+    pointer-events: none;
   }
 }
