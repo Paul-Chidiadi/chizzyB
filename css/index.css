@@ -193,6 +193,7 @@ body {
   line-height: 50px;
   color: var(--gold);
   text-align: center;
+  font-size: 30px;
 }
 .sidebar ul li a i:hover {
   background: var(--white);
@@ -415,47 +416,66 @@ body {
   }
 }
 /* conversation */
-.talk {
+
+.converse {
   background-image: url(../imgs/start1.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: none;
-  width: 100%;
-  overflow: hidden;
-}
-.converse {
   position: relative;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: auto auto;
-  row-gap: 20px;
   width: 100%;
-  margin: 40px 20px 40px 50px;
+  height: 750px;
+}
+.detail.one {
+  position: absolute;
+  top: 20px;
+  left: 30%;
+}
+.detail.two {
+  position: absolute;
+  top: 270px;
+  left: 10%;
+}
+.detail.three {
+  position: absolute;
+  top: 270px;
+  left: calc(40% + 120px);
+}
+.detail.four {
+  position: absolute;
+  top: 520px;
+  left: 30%;
+  margin-bottom: 20px;
 }
 .detail {
-  width: 400px;
-  height: 300px;
+  width: 30%;
+  height: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  box-shadow: 0 0 4px 2px var(--black);
-  background: rgba(0, 0, 0, 0.1);
 }
 .detail img {
-  width: 45%;
+  width: 200px;
   height: 200px;
   margin: 10px;
   border-radius: 10px;
-  box-shadow: 3px 3px 4px 0 var(--black);
+  box-shadow: 9px 10px 5px 0 var(--black);
 }
 .detail p {
-  width: 55%;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: bold;
   color: var(--gold);
   text-align: center;
-  padding-right: 15px;
+  padding: 0 10px;
+  box-shadow: 0 0 4px 2px var(--black);
+  transition: all 0.3s ease-in-out;
+}
+.detail p:hover {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--black);
+  box-shadow: 0 0 4px 2px var(--gold);
 }
 
 /* STYLING FOR MAIN END */
