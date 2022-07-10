@@ -163,7 +163,7 @@
         <div class="links">
           <div class="wrap">
             <i class="bx bxs-rocket"></i>
-            <a href="" class="ready">
+            <a href="" id="readyy" class="ready">
               <p>Ready to wear</p>
               <p>Select from our available clothes</p>
             </a>
@@ -180,6 +180,21 @@
           </div>
         </div>
       </div>
+
+      <!-- POP UP FOR STORE-->
+      <div id="readypop" class="pop">
+        <div class="pop-header">
+          <div class="title">Ready to wear</div>
+          <button class="cancel">&times;</button>
+        </div>
+        <hr />
+        <div class="pop-body">
+          Ready to wear store is not yet available at the moment. Check back
+          later.
+        </div>
+      </div>
+      <!-- Overlays on the background when pop up is active -->
+      <div id="overlay"></div>
 
       <!-- ACADEMY -->
       <div id="academy" class="head">ACADEMY</div>
@@ -221,7 +236,19 @@
               </p>
             </div>
           </div>
-          <a href="" class="btn">JOIN NOW!</a>
+          <a href="" id="join" class="btn">JOIN NOW!</a>
+        </div>
+      </div>
+
+      <!-- POP UP FOR ACADEMY -->
+      <div id="joinpop" class="pop">
+        <div class="pop-header">
+          <div class="title">Academy</div>
+          <button id="cancell" class="cancel">&times;</button>
+        </div>
+        <hr />
+        <div class="pop-body">
+          ChizzyB Academy is not yet available at the moment. Check back later.
         </div>
       </div>
 
@@ -319,8 +346,11 @@
       </footer>
     </div>
 
-    <!-- Javascript code-->
+    <!-- Javascript code and files -->
+    <script src="index.js"></script>
+
     <script>
+      // code for toggling sidebar with the menu button
       let btn = document.querySelector(".menubtn");
       let sidebar = document.querySelector(".sidebar");
 

@@ -1144,6 +1144,65 @@ body {
   }
 }
 
+/* POP UP SECTION */
+.pop {
+  background-color: var(--white);
+  width: 40%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 250ms ease-in-out;
+  z-index: 100;
+  border-radius: 16px;
+  padding: 10px;
+}
+.pop.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+.pop .pop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+  width: 100%;
+}
+.pop-header .title {
+  color: var(--gold);
+  font-size: 80%;
+  width: 80%;
+}
+.pop-header button {
+  background: none;
+  outline: none;
+  color: var(--gold);
+  font-size: 30px;
+  width: 20%;
+  height: 35px;
+  border: none;
+}
+.pop .pop-body {
+  padding: 10px 5px;
+  font-size: 80%;
+  font-weight: bold;
+  width: 100%;
+}
+#overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  transition: 250ms ease-in-out;
+  opacity: 0;
+}
+#overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
 /* STYLING FOR MAIN STORE END */
 
 /* Media query for sidebar and main section */
