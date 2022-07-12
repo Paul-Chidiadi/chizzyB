@@ -24,5 +24,3 @@ readyy.addEventListener("click", (e) => {
   document.querySelector("#readypop").classList.toggle("active");
   overlay.classList.toggle("active");
 });
-
-//code for Form validation inside store.php using jquery
