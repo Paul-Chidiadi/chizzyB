@@ -268,13 +268,19 @@
               </div>
             </div>
             <div class="form">
-              <form action="" method="post" role="form" class="contactForm">
+              <form
+                action="contact.php"
+                method="post"
+                role="form"
+                class="contactForm"
+              >
                 <input
                   type="text"
                   name="name"
                   class="form-control"
                   id="name"
                   placeholder="Your Name"
+                  required
                 />
                 <input
                   type="email"
@@ -282,6 +288,7 @@
                   name="email"
                   id="email"
                   placeholder="Your Email"
+                  required
                 />
                 <input
                   type="text"
@@ -296,7 +303,7 @@
                   rows="5"
                   placeholder="Message"
                 ></textarea>
-                <button type="submit">Send</button>
+                <button type="submit" name="submit">Send</button>
               </form>
             </div>
           </div>
