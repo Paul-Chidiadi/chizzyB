@@ -1,3 +1,4 @@
+// code for POP-UPS inside index.html
 const join = document.querySelector("#join"); // Pop up for academy
 const ready = document.querySelector("#readyy"); // Pop up for ready store
 const botn = document.querySelector(".cancel");
@@ -23,3 +24,5 @@ readyy.addEventListener("click", (e) => {
   document.querySelector("#readypop").classList.toggle("active");
   overlay.classList.toggle("active");
 });
+
+//code for Form validation inside store.php using jquery

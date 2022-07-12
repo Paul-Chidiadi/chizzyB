@@ -1,6 +1,6 @@
 <?php
 
-// using php to submit contact form
+// using php to submit contact form (validation done with HTML form validation method)
 // we can also use java script library(JQUERY) to validate the form, send data with AJAx,
 //  and send email with PHP but that will be an over kill for just a contact form
 if(isset($_POST['submit'])) {
