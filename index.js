@@ -19,7 +19,7 @@ join.addEventListener("click", (e) => {
   document.querySelector("#joinpop").classList.toggle("active");
   overlay.classList.toggle("active");
 });
-readyy.addEventListener("click", (e) => {
+ready.addEventListener("click", (e) => {
   e.preventDefault();
   document.querySelector("#readypop").classList.toggle("active");
   overlay.classList.toggle("active");

@@ -21,15 +21,15 @@
                     $fileNewName = uniqid('IMG-', true).".".$fileActualExt;
                     $fileDestination = 'uploads_customer/'.$fileNewName;
                     move_uploaded_file($fileTmpName, $fileDestination);
-                    header('Location: store.php?msg=file uploaded successfully');
+                    header('Location: store.php?msg=file uploaded successfully#mssgg');
                 }else{
-                    header('Location: store.php?msg=file is too large');
+                    header('Location: store.php?msg=file is too large#mssgg');
                 }
             }else{
-                header('Location: store.php?msg=error uploading your file, try again!');
+                header('Location: store.php?msg=error uploading your file, try again!#mssgg');
             }
         }else{
-            header('Location: store.php?msg=files of this type not accepted');
+            header('Location: store.php?msg=files of this type not accepted#mssgg');
         }
 
 

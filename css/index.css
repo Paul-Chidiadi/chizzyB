@@ -1139,6 +1139,17 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
+.store-form-1 .mssg {
+  transition: all 0.5s ease-in;
+  margin: 10px 0px 20px 0px;
+  font-size: 80%;
+  width: 90%;
+  color: var(--gold);
+  font-weight: bold;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 .store-form-1 .storeForm div {
   width: 80%;
   height: fit-content;
@@ -1196,6 +1207,7 @@ body {
     font-size: 15px;
   }
 }
+/* STYLING FOR MAIN STORE END */
 
 /* POP UP SECTION */
 .pop {
@@ -1255,8 +1267,6 @@ body {
   opacity: 1;
   pointer-events: all;
 }
-
-/* STYLING FOR MAIN STORE END */
 
 /* Media query for sidebar and main section */
 @media screen and (max-width: 700px) {
