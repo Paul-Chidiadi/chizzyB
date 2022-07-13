@@ -1,6 +1,6 @@
 <?php
 
-  include 'conn.php';
+  //include 'conn.php';
 
   if(isset($_POST['send'])) {
 
@@ -329,7 +329,20 @@
             </div>
           </form>
         </div>
+
+        <!-- Let customer upload an image sample of what they want -->
+        <div class="store-form-1">
+          <h1>Upload a photo sample of what you want if you have any. (This is not compulsory)</h1>
+          <form action="upload_customer.php" method="post" enctype="multipart/form-data" class="storeForm">
+            <div>
+              <input type="file" name="file" required> 
+              <button  type="submit" name="submit" class="btn">UPLOAD</button>
+            </div> 
+          </form> 
+        </div>
+
       </div>
+
 
       <!-- FOOTER -->
       <footer id="footer" class="foot">
