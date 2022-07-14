@@ -1,6 +1,6 @@
 <?php
 
-  //include 'conn.php';
+  include 'conn.php';
 
   if(isset($_POST['send'])) {
 
@@ -30,17 +30,21 @@
     $sleeveLength = $conn->real_escape_string($_POST['sleeveLengthPHP']);
     $fullLength = $conn->real_escape_string($_POST['fullLengthPHP']);
     $blouseLength = $conn->real_escape_string($_POST['blouseLengthPHP']);
+    //order number
+    $orderNumber = $conn->real_escape_string($_POST['orderPHP']);
 
     //Inserting data into datatbase
-    $sql = "INSERT INTO measurement ()
+    $sql = "INSERT INTO measurement (name, email, location, phone, gender, clothe, detail, shoulder,
+    neck, bust, waist, halfLength, stub, stwl, ubc, wc, hip, roundKnee, roundSleeve, 
+    trouserLength, base, lap, kneeCircum, sleeveLength, fullLength, blouseLength, orderNumber)
     VALUES ('$name', '$email', '$location', '$phone', '$gender', '$clothe', '$detail', '$shoulder',
      '$neck', '$bust', '$waist', '$halfLength', '$stub', '$stwl', '$ubc', '$wc', 
      '$hip', '$roundKnee', '$roundSleeve', '$trouserLength', '$base', '$lap', '$kneeCircum', '$sleeveLength', 
-     '$fullLength', '$blouseLength')";
+     '$fullLength', '$blouseLength', '$orderNumber')";
     if (mysqli_query($conn, $sql)) {
-      exit('<font color="gold">Data sent Successfully. You will get a reply from us soon.</font>');
+      exit('<font color="green">Data sent Successfully. You will get a reply from us soon.</font>');
     } else {
-      exit('<font color="gold">Upload failed, check inputs and try again.</font>');
+      exit('<font color="green">Upload failed, check inputs and try again.</font>');
     }
 
   }
@@ -145,6 +149,13 @@
           </p>
         </div>
 
+        <?php        
+          //generating order number
+          $order = "1234567890abcdefghi";
+          $orde = str_shuffle($order);
+          $orderNumber = substr($orde, 0, 5);
+        ?>
+
         <div class="store-form">
           <form action="" method="post" role="form" class="storeForm">
             <div>
@@ -155,6 +166,7 @@
                 class="formcontrol"
                 id="name"
                 placeholder="Your Name"
+                value="mum"
               />
               <label>Email</label>
               <input
@@ -163,6 +175,7 @@
                 name="email"
                 id="email"
                 placeholder="Your Email"
+                value="mum@gmail.com"
               />
               <div style="color:green; font-family:fantasy; font-size:10px;" id="responses"></div>
               <label>Location</label>
@@ -234,6 +247,9 @@
             </div>
             <!-- second part of the form -->
             <div>
+              <!-- inputing order number -->
+              <label>Order Number</label>
+              <input type="text" id="orders" value="<?php echo $orderNumber?>" readonly>
               <input
                 type="number"
                 id="half-length"
@@ -278,7 +294,7 @@
               />
               <input
                 type="number"
-                id="round-slevee"
+                id="round-sleeve"
                 class="formcontrol"
                 placeholder="round slevee"
               />
@@ -308,7 +324,7 @@
               />
               <input
                 type="number"
-                id="slevee-length"
+                id="sleeve-length"
                 class="formcontrol"
                 placeholder="shoulder"
               />
@@ -325,6 +341,7 @@
                 placeholder="blouse length"
               />
               <div style="color:green; font-family:fantasy; font-size:13px;" id="res"></div>
+              <div id="response"></div>
               <input type="button" value="Send" id="send" class="btn">
             </div>
           </form>
@@ -336,6 +353,8 @@
           <form action="upload_customer.php" method="post" enctype="multipart/form-data" class="storeForm">
             <div>
               <input type="file" name="file" required> 
+              <label>Order Number</label>
+              <input type="text" name="orders" value="<?php echo $orderNumber?>" readonly>
               <button  type="submit" name="submit" class="btn">UPLOAD</button>
             </div> 
           </form>
@@ -410,7 +429,7 @@
 
       //code for Form validation using jquery
       $(document).ready(function () {
-        console.log("ready");
+        
         // checking for errors onInput
         //if email doesnt have @gmail.com
         $("#email").on("input", function () {
@@ -460,6 +479,7 @@
           let gender = $("#gender").val();
           let clotheType = $("#clothe-type").val();
           let details = $("#details").val();
+          let order = $("#orders").val();
 
           // measurements
           let shoulder = $("#shoulder").val();
@@ -494,40 +514,41 @@
             $.ajax (
               {
                 url: 'store.php',
-                  method: 'POST',
-                  data: {
-                    send: 1,
-                    namePHP: name,
-                    emailPHP: email,
-                    locationPHP: location,
-                    phonePHP: phone,
-                    genderPHP: gender,
-                    clothePHP: clotheType,
-                    detailPHP: details,
-                    shoulderPHP: shoulder,
-                    neckPHP: neck,
-                    bustPHP: bust,
-                    waistPHP: waist,
-                    halfLengthPHP: halflength,
-                    stubPHP: stub,
-                    stwlPHP: stwl,
-                    ubcPHP: ubc,
-                    wcPHP: wc,
-                    hipPHP: hip,
-                    roundKneePHP: roundKnee,
-                    roundSleevePHP: rounSleeve,
-                    trouserLengthPHP: trouserlength,
-                    basePHP: base,
-                    lapPHP: lap,
-                    kneeCircumPHP: kneeCircum,
-                    sleeveLengthPHP: sleeveLength,
-                    fullLengthPHP: fullLength,
-                    blouseLengthPHP: blouseLength
-                  },
-                  success: function (response) {
-                      $("#response").html(response);
-                  },
-                  dataType: 'text'
+                method: 'POST',
+                data: {
+                  send: 1,
+                  namePHP: name,
+                  emailPHP: email,
+                  locationPHP: location,
+                  phonePHP: phone,
+                  genderPHP: gender,
+                  clothePHP: clotheType,
+                  detailPHP: details,
+                  shoulderPHP: shoulder,
+                  neckPHP: neck,
+                  bustPHP: bust,
+                  waistPHP: waist,
+                  halfLengthPHP: halfLength,
+                  stubPHP: stub,
+                  stwlPHP: stwl,
+                  ubcPHP: ubc,
+                  wcPHP: wc,
+                  hipPHP: hip,
+                  roundKneePHP: roundKnee,
+                  roundSleevePHP: roundSleeve,
+                  trouserLengthPHP: trouserLength,
+                  basePHP: base,
+                  lapPHP: lap,
+                  kneeCircumPHP: kneeCircum,
+                  sleeveLengthPHP: sleeveLength,
+                  fullLengthPHP: fullLength,
+                  blouseLengthPHP: blouseLength,
+                  orderPHP: order
+                },
+                success: function (response) {
+                    $("#response").html(response);
+                },
+                dataType: 'text'
               }
             );
           }

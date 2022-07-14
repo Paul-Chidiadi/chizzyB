@@ -1161,6 +1161,8 @@ body {
   margin: 10px 5px;
 }
 .store-form-1 .storeForm div input {
+  text-align: center;
+  margin: 5px 5px;
   width: 90%;
   height: fit-content;
 }
