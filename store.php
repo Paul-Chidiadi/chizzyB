@@ -166,7 +166,6 @@
                 class="formcontrol"
                 id="name"
                 placeholder="Your Name"
-                value="mum"
               />
               <label>Email</label>
               <input
@@ -175,7 +174,6 @@
                 name="email"
                 id="email"
                 placeholder="Your Email"
-                value="mum@gmail.com"
               />
               <div style="color:green; font-family:fantasy; font-size:10px;" id="responses"></div>
               <label>Location</label>
