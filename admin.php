@@ -28,7 +28,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
-    <title>CHIZZYB COUTURE</title>
+    <title>CHIZZYB COUTURE | Admin</title>
 
     <!--MAin CSS file-->
     <link rel="stylesheet" href="css/admin.css" />
