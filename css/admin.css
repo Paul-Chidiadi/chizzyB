@@ -77,6 +77,7 @@ body {
   background: var(--white);
   position: relative;
   min-height: 100vh;
+  display: block;
 }
 .body {
   width: 85%;
@@ -87,18 +88,21 @@ body {
 }
 /* NAVIGATION BAR START */
 .header {
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px;
+  width: 85%;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
   overflow: hidden;
-  position: relative;
-  height: 70px;
+  position: fixed;
+  height: fit-content;
+  background-color: var(--white);
+  z-index: 20;
 }
 .header nav {
-  flex: 1;
-  text-align: right;
-  scale: 1;
+  display: block;
   transition: all 0.5s ease-in-out;
 }
 .header .menubtn {
@@ -108,7 +112,7 @@ body {
   color: var(--gold);
   border-radius: 3px;
   box-shadow: -2px 2px 2px 0px rgba(0, 0, 0, 0.3);
-  scale: 0;
+  display: none;
   transition: all 0.5s ease-in-out;
 }
 .header .logo {
@@ -187,26 +191,18 @@ body {
 }
 @media screen and (max-width: 700px) {
   .header nav {
-    flex: 1;
-    text-align: right;
-    scale: 0;
+    display: none;
     transition: all 0.5s ease-in-out;
   }
   .header .menubtn {
-    text-align: center;
-    width: 20px;
-    height: 20px;
-    color: var(--gold);
-    border-radius: 3px;
-    box-shadow: -2px 2px 2px 0px rgba(0, 0, 0, 0.3);
-    scale: 1;
+    display: block;
     transition: all 0.5s ease-in-out;
   }
   .drop.active {
     background: rgba(0, 0, 0, 0.85);
     width: 230px;
     height: fit-content;
-    position: absolute;
+    position: fixed;
     top: 70px;
     right: 0;
     scale: 1;
@@ -242,6 +238,7 @@ body {
 .upload {
   width: 100%;
   padding-top: 95px;
+  margin-top: 75px;
   position: relative;
   overflow: hidden;
 }
