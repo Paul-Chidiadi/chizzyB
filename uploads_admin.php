@@ -19,6 +19,32 @@
     <div class="bodyy">
         <div class="body">
 
+            <!-- drop down side bar -->
+            <div class="drop">
+                <ul>
+                    <li>
+                        <a href="index.html">HOME</a>
+                        <div class="indicator"></div>
+                    </li>
+                    <li>
+                        <a href="#upload">UPLOAD</a>
+                        <div class="indicator"></div>
+                    </li>
+                    <li>
+                        <a href="">ACADEMY</a>
+                        <div class="indicator"></div>
+                    </li>
+                    <li>
+                        <a href="">BE SPOKE ORDERS</a>
+                        <div class="indicator"></div>
+                    </li>
+                    <li>
+                        <a href="">READY ORDERS</a>
+                        <div class="indicator"></div>
+                    </li>
+                </ul>
+            </div>
+
             <!-- NAVIGATION BAR -->
             <div class="header">
                 <div class="logo">CHIZZYB COUTURE</div>
@@ -46,6 +72,10 @@
                         </li>
                     </ul>
                 </nav>
+                <!-- menu button -->
+                <div class="menubtn">
+                    <i class="bx bx-menu"></i>
+                </div>
             </div>
 
             <!-- UPLOAD -->
@@ -69,6 +99,16 @@
         
     </div>
 
+    <!-- Javascript code for toggling drop side bar -->
+    <script type="text/javascript">
+        // toggle sidebar on and off
+        let btn = document.querySelector(".menubtn");
+        let sidebar = document.querySelector(".drop");
+
+        btn.onclick = function () {
+            sidebar.classList.toggle("active");
+        };
+    </script>
 
   </body>
 </html>

@@ -92,19 +92,34 @@ body {
   align-items: center;
   padding: 20px;
   overflow: hidden;
+  position: relative;
+  height: 70px;
 }
 .header nav {
   flex: 1;
   text-align: right;
+  scale: 1;
+  transition: all 0.5s ease-in-out;
+}
+.header .menubtn {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  color: var(--gold);
+  border-radius: 3px;
+  box-shadow: -2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+  scale: 0;
+  transition: all 0.5s ease-in-out;
 }
 .header .logo {
   font-size: 15px;
   font-weight: bold;
   color: var(--white);
   background: var(--gold);
-  padding: 10px;
+  padding: 3px 10px;
   height: 100%;
-  border-radius: 6px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 .header nav ul {
   display: inline-block;
@@ -142,6 +157,85 @@ body {
   background: none;
   opacity: 0;
   transition: opacity 0.5s ease;
+}
+/* drop side bar */
+.drop {
+  width: 0px;
+  height: 0px;
+  scale: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+/* MEDIA QUERY FOR NAV BAR */
+@media screen and (max-width: 900px) {
+  .header {
+    padding: 15px;
+  }
+  .header .logo {
+    font-size: 13px;
+    padding: 6px;
+  }
+  .header nav ul li {
+    margin-right: 12px;
+  }
+  .header nav ul li a {
+    font-size: 10px;
+  }
+  .header .indicator {
+    width: 20px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .header nav {
+    flex: 1;
+    text-align: right;
+    scale: 0;
+    transition: all 0.5s ease-in-out;
+  }
+  .header .menubtn {
+    text-align: center;
+    width: 20px;
+    height: 20px;
+    color: var(--gold);
+    border-radius: 3px;
+    box-shadow: -2px 2px 2px 0px rgba(0, 0, 0, 0.3);
+    scale: 1;
+    transition: all 0.5s ease-in-out;
+  }
+  .drop.active {
+    background: rgba(0, 0, 0, 0.85);
+    width: 230px;
+    height: fit-content;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    scale: 1;
+    z-index: 40;
+  }
+  .drop ul {
+    padding: 8px;
+    list-style: none;
+    font-size: 11px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    text-align: center;
+  }
+  .drop ul li {
+    margin: 15px 5px;
+  }
+  .drop a {
+    text-decoration: none;
+    text-align: center;
+    color: var(--gold);
+  }
+  .drop a:hover {
+    color: var(--white);
+  }
+
+  /* body increases */
+  .body {
+    width: 95%;
+  }
 }
 
 /* UPLOAD SECTION START */
