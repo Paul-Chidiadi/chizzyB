@@ -22,13 +22,14 @@
                 if($fileSize <= 1000000) {
                     $fileNewName = uniqid('IMG-', true).".".$fileActualExt;
                     $fileDestination = 'uploads_customer/'.$fileNewName;
-                    move_uploaded_file($fileTmpName, $fileDestination);
 
                     //insert into Database
                     $data = $conn->query("SELECT id from measurement WHERE orderNumber ='$orderNumber'");
                     if($data->num_rows > 0) { 
                         $sql = $conn->query("UPDATE measurement SET image_url='$fileDestination' WHERE orderNumber='$orderNumber'");
                         if ($sql) {
+                            # making sure image file  is inserted into database before moving it into its folder on the disk
+                            move_uploaded_file($fileTmpName, $fileDestination);
                             header('Location: store.php?msg=file uploaded successfully#mssgg');
                         } else {
                             header('Location: store.php?msg=file upload failed#mssgg');
