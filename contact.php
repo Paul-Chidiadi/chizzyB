@@ -16,9 +16,9 @@ if(isset($_POST['submit'])) {
 
     $myMail = mail($mailTo, $subject, $txt, $headers);
     if($myMail) {
-        header('Location: index.html?msg=mail sent');
+        header('Location: index.html?msg=mail sent...#contact');
     }else{
-        header('Location: index.html?msg=mail not sent');
+        header('Location: index.html?msg=mail not sent...#contact');
     }
 }
 ?>

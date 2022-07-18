@@ -100,6 +100,7 @@ body {
   height: fit-content;
   background-color: var(--white);
   z-index: 20;
+  box-shadow: 0 2px 0px 0px rgba(0, 0, 0, 0.04);
 }
 .header nav {
   display: block;
@@ -310,7 +311,44 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
-
 /* UPLOAD SECTION END */
+
+/* ORDER SECTION START */
+.sec-head h3 {
+  color: red;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 45px 0px 0px;
+  padding-left: 10px;
+}
+.orders {
+  width: 100%;
+  height: 400px;
+  margin: 35px 0px;
+  overflow-x: scroll;
+  background-color: rgb(186, 245, 186);
+  padding: 30px 15px;
+  position: relative;
+}
+.orders table {
+  width: 90%;
+  margin: 20px 0px;
+  border-color: var(--black);
+}
+.orders table td {
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-family: monospace;
+  font-weight: bold;
+}
+.orders table th {
+  text-align: center;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ORDER SECTION END */
 
 /* ADMIN UPLOADS END */

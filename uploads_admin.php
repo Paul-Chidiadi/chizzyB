@@ -29,7 +29,7 @@
                         $fileDestination = 'uploads_admin/'.$fileNewName;
     
                         # Insert  all data into Database
-                        $sql = "INSERT INTO ready_to_wear (name, price, detail, image_url) 
+                        $sql = "INSERT INTO goods (name, price, detail, image_url) 
                         VALUES ('$name', '$price', '$detail', '$fileDestination')";
                         if (mysqli_query($conn, $sql)) {
                             # making sure image file  is inserted into database before moving it into its folder on the disk
@@ -90,11 +90,11 @@
                         <div class="indicator"></div>
                     </li>
                     <li>
-                        <a href="">BE SPOKE ORDERS</a>
+                        <a href="#order">ORDERS</a>
                         <div class="indicator"></div>
                     </li>
                     <li>
-                        <a href="">READY ORDERS</a>
+                        <a href="">BLOG</a>
                         <div class="indicator"></div>
                     </li>
                 </ul>
@@ -123,11 +123,11 @@
                         <div class="indicator"></div>
                     </li>
                     <li>
-                        <a href="">BE SPOKE ORDERS</a>
+                        <a href="#order">ORDERS</a>
                         <div class="indicator"></div>
                     </li>
                     <li>
-                        <a href="">READY ORDERS</a>
+                        <a href="">BLOG</a>
                         <div class="indicator"></div>
                     </li>
                 </ul>
@@ -158,8 +158,133 @@
                 </form>
             </div>
 
-            <div class="sec-head">
+            <!-- ORDER SECTION -->
+            <div id="order" class="sec-head">
                 <div class="title">ORDERS</div>
+
+                <!-- BE SOKE ORDERS -->
+                <h3>BE SPOKE ORDERS</h3>
+                <div class="orders">
+                    <table border="2">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>orderNumber</th>
+                                <th>name</th>
+                                <th>email</th>
+                                <th>location</th>
+                                <th>phone</th>
+                                <th>gender</th>
+                                <th>clothe</th>
+                                <th>detail</th>
+                                <th>shoulder</th>
+                                <th>neck</th>
+                                <th>bust</th>
+                                <th>waist</th>
+                                <th>halfLength</th>
+                                <th>stub</th>
+                                <th>stwl</th>
+                                <th>ubc</th>
+                                <th>wc</th>
+                                <th>hip</th>
+                                <th>roundKnee</th>
+                                <th>roundSleeve</th>
+                                <th>trouserLength</th>
+                                <th>base</th>
+                                <th>lap</th>
+                                <th>kneeCircum</th>
+                                <th>sleeveLength</th>
+                                <th>fullLength</th>
+                                <th>blouseLength</th>
+                                <th>image</th>
+                            </tr> 
+                        </thead>
+                        <tbody>
+                            <?php
+                                # GETTING BE-SPOKE ORDERS FROM DADTABASE TABLE MEASUREMENTS
+                                $sql = $conn->query("SELECT * FROM measurement");
+                                while($data = $sql->fetch_array()) {
+                                   echo "<tr>
+                                            <td>". $data['id']. "</td>  
+                                            <td>". $data['orderNumber']. "</td>  
+                                            <td>" . $data['name']. "</td>
+                                            <td>". $data['email']. "</td>
+                                            <td>". $data['location']. "</td>
+                                            <td>". $data['phone']. "</td>
+                                            <td>". $data['gender']. "</td>
+                                            <td>". $data['clothe']. "</td>
+                                            <td>". $data['detail']. "</td>
+                                            <td>". $data['shoulder']. "</td>
+                                            <td>". $data['neck']. "</td>
+                                            <td>". $data['bust']. "</td>
+                                            <td>". $data['waist']. "</td>
+                                            <td>". $data['halfLength']. "</td>
+                                            <td>". $data['stub']. "</td>
+                                            <td>". $data['stwl']. "</td>
+                                            <td>". $data['ubc']. "</td>
+                                            <td>". $data['wc']. "</td>
+                                            <td>". $data['hip']. "</td>
+                                            <td>". $data['roundKnee']. "</td>
+                                            <td>". $data['roundSleeve']. "</td>
+                                            <td>". $data['trouserLength']. "</td>
+                                            <td>". $data['base']. "</td>
+                                            <td>". $data['lap']. "</td>
+                                            <td>". $data['kneeCircum']. "</td>
+                                            <td>". $data['sleeveLength']. "</td>
+                                            <td>". $data['fullLength']. "</td>
+                                            <td>". $data['blouseLength']. "</td>
+                                            <td>". $data['image_url']. "</td>      
+                                        </tr>
+                                    ";
+                                }
+                        
+                            ?>
+                        </tbody>
+                    </table>     
+                </div>
+                <!-- READY TO WEAR ORDERS -->
+                <h3>READY TO WEAR ORDERS</h3>
+                <div class="orders">
+                    <table border="2">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>orderNumber</th>
+                                <th>email</th>   
+                                <th>Product name</th>  
+                                <th>Product price</th>
+                                <th>Quantity</th>  
+                                <th>Total amount</th>
+                                <th>Product detail</th> 
+                                <th>Image</th> 
+                            </tr> 
+                        </thead>
+                        <tbody>
+                            <?php
+                                # GETTING READY TO WEAR ORDERS FROM DADTABASE TABLE MEASUREMENTS
+                                $sql = $conn->query("SELECT * FROM ready_to_wear");
+                                while($data = $sql->fetch_array()) {
+                                   echo "<tr>
+                                            <td>". $data['id']. "</td>
+                                            <td>". $data['orderNumber']. "</td>  
+                                            <td>". $data['email']. "</td>  
+                                            <td>". $data['name']. "</td>  
+                                            <td>" . $data['price']. "</td>
+                                            <td>". $data['quantity']. "</td>  
+                                            <td>" . $data['total_amt']. "</td>
+                                            <td>". $data['detail']. "</td> 
+                                            <td>". $data['image_url']. "</td>      
+                                        </tr>
+                                    ";
+                                }
+                        
+                            ?>
+                        </tbody>
+                    </table>     
+                </div>
+
+
+
             </div>
             
 
