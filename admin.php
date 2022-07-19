@@ -1,5 +1,12 @@
 <?php
 
+    session_start();
+     # if admin is already logged in take them to the upload page already(uploads_admin.php)
+    /*if(isset($_SESSION['logged'])) {
+        header('Location: uploads_admin.php');
+        exit();
+    }*/
+
     if(isset($_POST['submit'])) {
         $name = $_POST['username'];
         $password = $_POST['password'];
@@ -7,6 +14,7 @@
 
         if($name === "admin") {
             if($password === "chizzy") {
+                $_SESSION['logged'] = '1';
                 header('Location: uploads_admin.php');
             }else {
                 header('Location: admin.php?msg=password is not valid');

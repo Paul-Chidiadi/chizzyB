@@ -1,6 +1,14 @@
 <?php
     include 'conn.php';
 
+    session_start();
+
+    # if admin is not logged in take them back to admin login page(admin.php)
+    if (!isset($_SESSION['logged'])) {
+        header('Location: admin.php');
+        exit();
+    }
+
     # CODE FOR UPLOADING PRODUCTS INTO DATABASE
     if (isset($_POST['submit'])) {
         # code...

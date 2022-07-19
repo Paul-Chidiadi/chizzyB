@@ -1,6 +1,7 @@
 <?php
     session_start();
 
+    # if user is not logged in take them back to login page(access.php)
     if (!isset($_SESSION['loggedIN'])) {
         header('Location: access.php');
         exit();
