@@ -44,7 +44,7 @@
         <h1>Admin Login</h1>
         <form action="admin.php"  method="post" class="admin-form">
             <input type="text" name="username" placeholder="username" required>
-            <input type="text" name="password" placeholder="password" required>
+            <input type="password" name="password" placeholder="password" required>
             <input type="submit" name="submit" class="btn" value="LOGIN">
             <div class="mssgg">
                 <?php

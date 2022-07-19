@@ -1,3 +1,33 @@
+<?php
+ 
+    include 'conn.php';
+
+    session_start();
+    # if user is already logged in take them to the store already(sell.php)
+    /*if(isset($_SESSION['loggedIN'])) {
+        header('Location: sell.php');
+        exit();
+    }*/
+
+    # LET USER LOGIN
+    if (isset($_POST['log'])) {
+        # code...
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $data = $conn->query("SELECT id from customer_info WHERE email='$email' AND password='$password'");
+        if($data->num_rows > 0) {
+            $_SESSION['loggedIN'] = '1';
+            $_SESSION['email'] = $email; 
+            header('Location: sell.php');
+        }else {
+            header('Location: access.php?msg=invalid username or password');
+        }
+    }
+
+
+
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,7 +60,16 @@
             <input type="email" name="email" class="control" placeholder="email">
             <input type="password" name="password" class="control" placeholder="password">
             <a href="">Forgot Password &#8594;</a>
-            <input type="button" value="LOGIN" class="btn">
+            <div class="mssg">
+                <?php 
+                    if (isset($_GET['msg'])) {
+                        echo $_GET['msg']; 
+                    }else {
+                        echo "";
+                    }            
+                ?>
+            </div>
+            <input type="submit" name="log" value="LOGIN" class="btn">
         </form>
         <a id="new" href="">Create New Account &#8594;</a>
     </div>
@@ -41,7 +80,7 @@
             <input type="email" id="email" class="control" placeholder="email">
             <input type="password" id="password" class="control" placeholder="password">
             <input type="password" id="con-pass" class="control" placeholder="confirm password">
-            <input type="button" value="Sign Up" class="btn">
+            <input type="button" name="sign" value="Sign Up" class="btn">
         </form>
         <a id="instead" href="">Login instead &#8594;</a>
     </div>
