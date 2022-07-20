@@ -114,6 +114,13 @@ body {
   font-weight: bold;
   font-size: 14px;
 }
+.access #move {
+  color: blue;
+  text-decoration: underline;
+  padding-bottom: 10px;
+  font-weight: bold;
+  font-size: 13px;
+}
 .mssg {
   transition: all 0.5s ease-in;
   margin: 10px auto;

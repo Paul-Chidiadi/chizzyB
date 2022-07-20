@@ -18,9 +18,16 @@
 
         $data = $conn->query("SELECT id from customer_info WHERE email='$email' AND password='$password'");
         if($data->num_rows > 0) {
-            $_SESSION['loggedIN'] = '1';
-            $_SESSION['email'] = $email; 
-            header('Location: sell.php');
+            $sql = $conn->query("SELECT * FROM customer_info WHERE email= '$email'");
+            $data = $sql->fetch_array();
+            $check = $data['verified_at'];
+            if ($check == null) {
+                header('Location: access.php?msg=Please verify your email&info=verify.php'); 
+            }else {
+                $_SESSION['loggedIN'] = '1';
+                $_SESSION['email'] = $email; 
+                header('Location: sell.php');
+            }
         }else {
             header('Location: access.php?msg=invalid username or password');
         }
@@ -131,6 +138,23 @@
                     }            
                 ?>
             </div>
+            <!-- user clicks here to go to verify page if they haven't -->
+            <a id="move" href="
+                <?php 
+                    if (isset($_GET['info'])) {
+                        echo $_GET['info']; 
+                    }else {
+                        echo "";
+                    }            
+                ?>">
+                <?php 
+                    if (isset($_GET['msg'])) {
+                        echo $_GET['msg']." "." click here"; 
+                    }else {
+                        echo "";
+                    }            
+                ?>
+            </a>
             <input type="submit" name="log" value="LOGIN" class="btn">
         </form>
         <a id="new" href="">Create New Account &#8594;</a>
