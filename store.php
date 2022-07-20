@@ -338,8 +338,8 @@
                 class="formcontrol"
                 placeholder="blouse length"
               />
-              <div style="color:green; font-family:fantasy; font-size:13px;" id="res"></div>
-              <div id="response"></div>
+              <div style="color:green; font-family:fantasy;, font-weight:bold; font-size:13px;" id="res"></div>
+              <div style="color:green; font-family:monspace; font-weight:bold; font-size:13px;" id="response"></div>
               <input type="button" value="Send" id="send" class="btn">
             </div>
           </form>
@@ -502,12 +502,24 @@
 
           if( email == "" || name == "" || location == "" || gender == "" || details == "") {
             $("#res").html("Make sure all fields are filled");
+            setTimeout(() => {
+              $("#res").html("");
+            }, 3000);
           }else  if (email.indexOf("@gmail.com") <= 0) {
             $("#res").html("Your Email is invalid");
+            setTimeout(() => {
+              $("#res").html("");
+            }, 3000);
           }else  if (details.length >= 200) {
             $("#res").html("Your detail message is too long");
+            setTimeout(() => {
+              $("#res").html("");
+            }, 3000);
           }else  if (phone.length < 11){
             $("#res").html("check your mobile number");
+            setTimeout(() => {
+              $("#res").html("");
+            }, 3000);
           }else {
             $.ajax (
               {
