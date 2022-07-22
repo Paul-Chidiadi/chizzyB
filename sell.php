@@ -1,4 +1,5 @@
 <?php
+  include 'conn.php';
     session_start();
 
     # if user is not logged in take them back to login page(access.php)
@@ -35,31 +36,31 @@
       <nav>
           <ul>
             <li class="list">
-              <a href="">
+              <a href="#home">
                   <span class="icon"><i class='bx bx-home'></i></span>
                   <span class="text">HOME</span>
               </a>  
             </li>
             <li class="list">
-                <a href="">
+                <a href="#products">
                   <span class="icon"><i class='bx bx-store' ></i></span>
                   <span class="text">PRODUCTS</span>
                 </a>
             </li>
             <li class="list">
-                <a href="">
+                <a href="#contact">
                   <span class="icon"><i class='bx bx-message-alt-dots'></i></span>
                   <span class="text">CONTACT</span>
                 </a>
             </li>
             <li class="list">
-                <a href="">
+                <a href="logout.php">
                   <span class="icon"><i class='bx bx-log-out-circle'></i></span>
                   <span class="text">LOGOUT</span>
                 </a>
             </li>
             <li class="list">
-                <a href="">
+                <a href="cart.php">
                   <span class="icon"><i class='bx bx-cart'></i></i></span>
                   <span class="text">CART</span>
                 </a>
@@ -75,18 +76,92 @@
 
     <!-- MAIN BODY -->
     <div class="main">
-      <div class="row">
+
+      <!-- HOME SECTION -->
+      <div id="home" class="row">
         <div class="col-1">
           <h1>Give Your Wardrobe <br> A New Style!</h1>
           <small>A smart look isn't always about expensive cloths. <br>It's about making
             the right choice. Wearing the right  <br>cloths makes the greatness!
           </small>
-          <a href="" class="btn">Explore now &#8594;</a>
+          <a href="#products" class="btn">Explore now &#8594;</a>
         </div>
         <div class="col-2">
           <img src="imgs/cart.jpg" alt="">
         </div>
       </div>
+
+       <!-- PRODUCT SECTION -->
+      <div id="products" class="products">
+        <div class="title">FEATURED PRODUCTS</div>
+        <div  class="roww">
+          <div class="small">
+            <?php
+              $sql = $conn->query("SELECT * FROM goods LIMIT 3");
+              if($sql->num_rows > 0) {
+                while($data = $sql->fetch_array()) {
+                  echo "
+                  <div class='col'>
+                    <img src='". $data['image_url']. "'>
+                    <div class='star'>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bxs-star-half' ></i>
+                      <i class='bx bx-star'></i>
+                    </div>
+                    <div class='name'>". $data['name']. "</div>
+                    <div class='price'>". $data['price']. "</div>
+                    <small class='detail'>". $data['detail']. "</small>
+                  </div> 
+                  ";
+                }
+              }else {
+                echo "
+                <div class='small'>
+                 <p>No product available yet!</p>
+                </div>                
+                ";
+              }
+            ?>
+          </div>
+          <div class="small">
+            <?php
+              $sql = $conn->query("SELECT * FROM goods LIMIT 3");
+              if($sql->num_rows > 0) {
+                while($data = $sql->fetch_array()) {
+                  echo "
+                  <div class='col'>
+                    <img src='". $data['image_url']. "'>
+                    <div class='star'>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bxs-star'></i>
+                      <i class='bx bxs-star-half' ></i>
+                      <i class='bx bx-star'></i>
+                    </div>
+                    <div class='name'>". $data['name']. "</div>
+                    <div class='price'>". $data['price']. "</div>
+                    <small class='detail'>". $data['detail']. "</small>
+                  </div> 
+                  ";
+                }
+                
+              }else {
+                echo "
+                <div class='small'>
+                 <p>No product available yet!</p>
+                </div>                
+                ";
+              }
+            ?>
+          </div>
+
+        </div>
+      </div>
+
+
+
     </div>
 
 

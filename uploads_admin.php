@@ -32,7 +32,7 @@
             # code...
             if(in_array($fileActualExt, $allow)) {
                 if($fileError === 0) {
-                    if($fileSize <= 1000000) {
+                    if($fileSize <= 4000000) {
                         $fileNewName = uniqid('IMG-', true).".".$fileActualExt;
                         $fileDestination = 'uploads_admin/'.$fileNewName;
     
