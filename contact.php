@@ -21,4 +21,23 @@ if(isset($_POST['submit'])) {
         header('Location: index.html?msg=mail not sent...#contact');
     }
 }
+
+if(isset($_POST['submition'])) {
+
+    $name = $_POST['name'];
+    $subject = $_POST['subject'];
+    $mailFrom = $_POST['email'];
+    $message = $_POST['message'];
+
+    $mailTo = "chizzyB@gmail.com";
+    $headers = "From: ".$mailFrom;
+    $txt = "You received a messsage from".$name.".\n\n".$message;
+
+    $myMail = mail($mailTo, $subject, $txt, $headers);
+    if($myMail) {
+        header('Location: sell.php?msg=mail sent...#contact');
+    }else{
+        header('Location: sell.php?msg=mail not sent...#contact');
+    }
+}
 ?>

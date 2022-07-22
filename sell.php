@@ -160,6 +160,64 @@
         </div>
       </div>
 
+      <!-- CONTACT -->
+      <div id="contact" class="contacts">
+        <div class="call">
+          <h1>CONTACT US</h1>
+          <div class="contain">
+            <div class="info">
+              <div class="good">
+                <i class="bx bxs-envelope"></i>
+                <p>chizzyB@gmail.com</p>
+              </div>
+              <div class="good">
+                <i class="bx bx-phone-call"></i>
+                <p>+234 8092532781</p>
+              </div>
+            </div>
+            <div class="form">
+              <form
+                action="contact.php"
+                method="post"
+                role="form"
+                class="contactForm"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="name"
+                  placeholder="Your Name"
+                  required
+                />
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  placeholder="Your Email"
+                  required
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  name="subject"
+                  id="subject"
+                  placeholder="Subject"
+                />
+                <textarea
+                  class="form-control more"
+                  name="message"
+                  rows="5"
+                  placeholder="Message"
+                ></textarea>
+                <button type="submit" name="submition">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
 
 
     </div>

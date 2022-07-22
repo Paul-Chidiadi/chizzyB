@@ -668,3 +668,86 @@ body {
     margin-right: 15px;
   }
 }
+/* CONTACT */
+.contacts {
+  width: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.call {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+.call h1 {
+  color: var(--black);
+  padding: 15px;
+}
+.contain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  padding: 20px;
+}
+.contain .info {
+  width: 30%;
+  display: flex;
+  align-self: flex-start;
+  justify-self: flex-end;
+  flex-direction: column;
+}
+.contain .info .good {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contain .info i {
+  font-size: 20px;
+  color: var(--gold);
+}
+.contain .info p {
+  font-size: 14px;
+  font-weight: light;
+  color: var(--black);
+}
+.contain .form {
+  width: 70%;
+  margin-left: 10px;
+}
+.contain .form .contactForm {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.contain .form .contactForm .form-control {
+  width: 60%;
+  margin: 10px 5px;
+  height: 40px;
+  padding-left: 7px;
+}
+.contain .form .contactForm .form-control.more {
+  width: 60%;
+  margin: 10px 5px;
+  height: 90px;
+}
+.contain .form .contactForm button {
+  font-size: 80%;
+  width: 40%;
+  margin: 10px 5px;
+  height: 50px;
+  background-color: var(--gold);
+  box-shadow: -3px 3px 4px 0 var(--black);
+  color: var(--white);
+  border-radius: 10px;
+}
+.contain .form .contactForm button:hover {
+  width: 45%;
+  height: 55px;
+  background-color: red;
+}
