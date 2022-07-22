@@ -10,6 +10,7 @@
   --gold: #ff9800;
   --white: #ffffff;
   --black: #202026;
+  --fblac: rgb(70, 64, 64);
 }
 body {
   position: relative;
@@ -19,10 +20,10 @@ body {
 }
 /* NAVIGATION BAR START */
 .header {
+  margin-top: 10px;
+  padding: 25px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 25px;
-  margin-top: 10px;
   width: 85%;
   display: flex;
   justify-content: space-between;
@@ -155,6 +156,10 @@ body {
   transform: translateX(calc(100px * 3));
   display: block;
 }
+.header nav ul li:nth-child(5):hover ~ .indicator {
+  transform: translateX(calc(100px * 4));
+  display: block;
+}
 .header .menubtn {
   text-align: center;
   width: 20px;
@@ -167,4 +172,61 @@ body {
   color: rgb(70, 64, 64);
   background: var(--white);
   transition: all 0.5s ease-in-out;
+}
+/* MAIN SECTION START */
+.main {
+  width: 85%;
+  padding: 0px 25px;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+.row {
+  width: 100%;
+  padding-top: 70px;
+  margin-top: 105px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.col-1 {
+  float: left;
+  width: 50%;
+  padding: 15px;
+}
+.col-2 {
+  float: right;
+  width: 50%;
+}
+.col-2 img {
+  width: 100%;
+  border-radius: 10px;
+}
+.col-1 h1 {
+  font-size: 40px;
+  line-height: 60px;
+  margin: 25px 0;
+  color: var(--black);
+}
+.col-1 small {
+  color: var(--fblac);
+  font-weight: bold;
+}
+.col-1 .btn {
+  text-decoration: none;
+  background-color: var(--gold);
+  display: block;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 9px 30px;
+  margin: 15px;
+  width: fit-content;
+  transition: 0.5s;
+}
+.col-1 .btn:hover {
+  background-color: red;
 }

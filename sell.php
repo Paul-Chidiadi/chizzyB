@@ -49,13 +49,19 @@
             <li class="list">
                 <a href="">
                   <span class="icon"><i class='bx bx-message-alt-dots'></i></span>
-                  <span class="text">CONTACTS</span>
+                  <span class="text">CONTACT</span>
                 </a>
             </li>
             <li class="list">
                 <a href="">
                   <span class="icon"><i class='bx bx-log-out-circle'></i></span>
                   <span class="text">LOGOUT</span>
+                </a>
+            </li>
+            <li class="list">
+                <a href="">
+                  <span class="icon"><i class='bx bx-cart'></i></i></span>
+                  <span class="text">CART</span>
                 </a>
             </li>
             <div class="indicator"></div>
@@ -67,7 +73,23 @@
       </div>
     </div>
 
-    
+    <!-- MAIN BODY -->
+    <div class="main">
+      <div class="row">
+        <div class="col-1">
+          <h1>Give Your Wardrobe <br> A New Style!</h1>
+          <small>A smart look isn't always about expensive cloths. <br>It's about making
+            the right choice. Wearing the right  <br>cloths makes the greatness!
+          </small>
+          <a href="" class="btn">Explore now &#8594;</a>
+        </div>
+        <div class="col-2">
+          <img src="imgs/cart.jpg" alt="">
+        </div>
+      </div>
+    </div>
+
+
 
 
 
