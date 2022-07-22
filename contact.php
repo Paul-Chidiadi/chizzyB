@@ -22,6 +22,7 @@ if(isset($_POST['submit'])) {
     }
 }
 
+// submit code for CONTACT SECTION IN sell.php
 if(isset($_POST['submition'])) {
 
     $name = $_POST['name'];
