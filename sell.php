@@ -218,6 +218,35 @@
         </div>
       </div>
 
+      <!-- FOOTER -->
+      <footer id="footer" class="foot">
+        <div class="row">
+          <div class="author">
+            <p class="copyright-text">© ChizzyB COUTURE</p>
+            <div class="credits">Designed by paulchidiadi@gmail.com</div>
+          </div>
+
+          <div class="foot-nav">
+            <ul class="list">
+              <li class="list-item">
+                <a href="#home">Home</a>
+              </li>
+
+              <li class="list-item">
+                <a href="#products">Products</a>
+              </li>
+
+              <li class="list-item">
+                <a href="#contact">Contact</a>
+              </li>
+
+              <li class="list-item">
+                <a href="cart.php">Cart</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </footer>
 
 
     </div>
