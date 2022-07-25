@@ -22,7 +22,7 @@
             $data = $sql->fetch_array();
             $check = $data['verified_at'];
             if ($check == null) {
-                header('Location: access.php?msg=Please verify your email&info=verify.php'); 
+                header('Location: access.php?msge=Please verify your email&info=verify.php'); 
             }else {
                 $_SESSION['loggedIN'] = '1';
                 $_SESSION['email'] = $email; 
@@ -126,9 +126,9 @@
     <div id="login" class="access active">
         <h2>LOGIN</h2>
         <form action="access.php" class="access-form" method="post">
-            <input type="email" name="email" class="control" placeholder="email">
-            <input type="password" name="password" class="control" placeholder="password">
-            <a href="">Forgot Password &#8594;</a>
+            <input type="email" name="email" class="control" placeholder="email" required>
+            <input type="password" name="password" class="control" placeholder="password" required>
+            <a href="forgot.php">Forgot Password &#8594;</a>
             <div class="mssg">
                 <?php 
                     if (isset($_GET['msg'])) {
@@ -148,8 +148,8 @@
                     }            
                 ?>">
                 <?php 
-                    if (isset($_GET['msg'])) {
-                        echo $_GET['msg']." "." click here"; 
+                    if (isset($_GET['msge'])) {
+                        echo $_GET['msge']." "." click here"; 
                     }else {
                         echo "";
                     }            
