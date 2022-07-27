@@ -9,6 +9,13 @@
     }
     $email = $_SESSION['email'];
 
+    if (isset($_POST['imagePHP'])) {
+      $image = $_POST['imagePHP']; 
+ 
+      $_SESSION['image'] = $image;
+      exit('<font color="green">success</font>');
+    }
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -68,10 +75,6 @@
             <div class="indicator"></div>
           </ul>
       </nav>
-      <!-- menu button -->
-      <div class="menubtn">
-          <i class="bx bx-menu"></i>
-      </div>
     </div>
 
     <!-- MAIN BODY -->
@@ -91,7 +94,7 @@
         </div>
       </div>
 
-       <!-- PRODUCT SECTION -->
+      <!-- PRODUCT SECTION -->
       <div id="products" class="products">
         <div class="title">FEATURED PRODUCTS</div>
         <div  class="roww">
@@ -102,7 +105,7 @@
                 while($data = $sql->fetch_array()) {
                   echo "
                   <div class='col'>
-                    <img src='". $data['image_url']. "'>
+                    <img id='images' src='". $data['image_url']. "'>
                     <div class='star'>
                       <i class='bx bxs-star'></i>
                       <i class='bx bxs-star'></i>
@@ -112,7 +115,6 @@
                     </div>
                     <div class='name'>". $data['name']. "</div>
                     <div class='price'>". $data['price']. "</div>
-                    <small class='detail'>". $data['detail']. "</small>
                   </div> 
                   ";
                 }
@@ -127,12 +129,12 @@
           </div>
           <div class="small">
             <?php
-              $sql = $conn->query("SELECT * FROM goods LIMIT 3");
+              $sql = $conn->query("SELECT * FROM goods LIMIT 3 OFFSET 3");
               if($sql->num_rows > 0) {
                 while($data = $sql->fetch_array()) {
                   echo "
                   <div class='col'>
-                    <img src='". $data['image_url']. "'>
+                    <img id='images' src='". $data['image_url']. "'>
                     <div class='star'>
                       <i class='bx bxs-star'></i>
                       <i class='bx bxs-star'></i>
@@ -142,7 +144,6 @@
                     </div>
                     <div class='name'>". $data['name']. "</div>
                     <div class='price'>". $data['price']. "</div>
-                    <small class='detail'>". $data['detail']. "</small>
                   </div> 
                   ";
                 }
@@ -250,5 +251,40 @@
 
 
     </div>
+
+
+    <!-- Javascript code and files/libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script>
+      $(document).ready( function() {
+
+        //onclick function for taking user to detiled product page
+        $('#images').on('click', () => {
+          let image = $('#images').attr('src');
+
+          if (images != ""){
+            $.ajax(
+                {
+                  url: 'sell.php',
+                  method: 'POST',
+                  data: {
+                    sell: 1,                   
+                    imagePHP: image
+                  },
+                  success: function (response) {
+                      if (response.indexOf('success') >= 0) {
+                        window.location = 'detailed.php';
+                      }
+                  },
+                  dataType: 'text'
+                }
+              );
+          }
+        });
+      });
+
+    </script>
+
   </body>
 </html>
