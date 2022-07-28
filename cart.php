@@ -74,7 +74,7 @@
   <!-- MAIN BODY -->
   <div class="main">
 
-    <div class="row">
+    <div class="rowt">
       <table>
         <thead>
           <tr>
@@ -82,9 +82,10 @@
             <th>Quantity</th>
             <th>Size</th>   
             <th>Subtotal</th>
+            <th>R/A</th>
           </tr> 
         </thead>
-        <tbody>
+        <tbody id="body">
             
         </tbody>
       </table>     
@@ -160,6 +161,11 @@
     </footer>
 
   </div>
+
+  <!-- Javascript code and files/libraries -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    
+  <script src="javaScript/receive.js"></script>
 
 </body>
 </html>

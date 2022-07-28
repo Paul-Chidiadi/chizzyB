@@ -959,16 +959,27 @@ body {
 }
 
 /* CART SECTION */
-.row table {
+.rowt {
+  width: 100%;
+  padding-top: 130px;
+  margin-top: 10px;
+  position: relative;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
+.rowt table {
   width: 100%;
   border-collapse: collapse;
+  overflow: scroll;
 }
-.row table thead {
+.rowt table thead {
   color: white;
   background-color: var(--gold);
+  font-size: 15px;
+  overflow: hidden;
 }
-.row table thead th {
+.rowt table thead th {
   padding: 5px;
   text-align: left;
-  font-weight: lighter;
+  overflow: hidden;
 }

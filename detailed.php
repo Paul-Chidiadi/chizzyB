@@ -93,7 +93,7 @@
         <!-- PRODUCT DETAIL -->
         <div class="row">
             <div class="row-2">
-                <img src="<?php echo $images;?>" alt="">
+                <img id="img" src="<?php echo $images;?>" alt="">
             </div>
             <div class="row-2">
                 <div class='star'>
@@ -103,11 +103,11 @@
                     <i class='bx bxs-star-half' ></i>
                     <i class='bx bx-star'></i>
                 </div>
-                <div class='name'><?php echo $name;?></div>
-                <div class='price'><?php echo $price;?></div>
+                <div id="name" class='name'><?php echo $name;?></div>
+                <div id="price" class='price'><?php echo $price;?></div>
                 <label>Product Detail</label>
                 <small class='detail'><?php echo $detail;?></small>
-                <select class="select">
+                <select id="size" class="select">
                     <option value="">Select Size</option>
                     <option value="XXL">XXL</option>
                     <option value="XL">XL</option>
@@ -116,7 +116,7 @@
                     <option value="Small">Small</option>
                 </select>
                 <input class="qty" type="number" value="1">
-                <a href="cart.php?id=<?php echo $my_id;?>" class="btn">Add to cart &#8594;</a>
+                <a href="cart.php" class="btn">Add to cart &#8594;</a>
 
             </div>
         </div>
