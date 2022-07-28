@@ -503,7 +503,7 @@ body {
 }
 .roww .small .col .btn {
   text-decoration: none;
-  background-color: red;
+  background-color: var(--gold);
   display: inline-block;
   color: var(--white);
   font-size: 10px;
@@ -515,7 +515,7 @@ body {
   transition: 0.5s;
 }
 .roww .small .col .btn:hover {
-  background-color: var(--gold);
+  background-color: red;
 }
 /* MEDIA QUERY FOR PRODUCT SECTION */
 @media screen and (max-width: 960px) {
@@ -956,4 +956,19 @@ body {
   line-height: 20px;
   margin: 2px 0px 10px;
   word-spacing: 5px;
+}
+
+/* CART SECTION */
+.row table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.row table thead {
+  color: white;
+  background-color: var(--gold);
+}
+.row table thead th {
+  padding: 5px;
+  text-align: left;
+  font-weight: lighter;
 }

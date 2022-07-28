@@ -1,3 +1,15 @@
+<?php
+  include 'conn.php';
+  session_start();
+
+  # if user is not logged in take them back to login page(access.php)
+  if (!isset($_SESSION['loggedIN'])) {
+      header('Location: access.php');
+      exit();
+  }
+  $email = $_SESSION['email'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +30,136 @@
     />
 </head>
 <body>
+
+  <!-- NAVIGATION BAR -->
+  <div class="header">
+    <div class="logo">CHIZZYB COUTURE</div>
+    <nav>
+        <ul>
+          <li class="list">
+            <a href="sell.php#home">
+                <span class="icon"><i class='bx bx-home'></i></span>
+                <span class="text">HOME</span>
+            </a>  
+          </li>
+          <li class="list">
+              <a href="#products">
+                <span class="icon"><i class='bx bx-store' ></i></span>
+                <span class="text">PRODUCTS</span>
+              </a>
+          </li>
+          <li class="list">
+              <a href="sell.php#contact">
+                <span class="icon"><i class='bx bx-message-alt-dots'></i></span>
+                <span class="text">CONTACT</span>
+              </a>
+          </li>
+          <li class="list">
+              <a href="logout.php">
+                <span class="icon"><i class='bx bx-log-out-circle'></i></span>
+                <span class="text">LOGOUT</span>
+              </a>
+          </li>
+          <li class="list">
+              <a href="cart.php">
+                <span class="icon"><i class='bx bx-cart'></i></i></span>
+                <span class="text">CART</span>
+              </a>
+          </li>
+          <div class="indicator"></div>
+        </ul>
+    </nav>
+  </div>
+
+  <!-- MAIN BODY -->
+  <div class="main">
+
+    <div class="row">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Size</th>   
+            <th>Subtotal</th>
+          </tr> 
+        </thead>
+        <tbody>
+            
+        </tbody>
+      </table>     
+    </div>
     
+    <!-- PRODUCT SECTION -->
+    <div id="products" class="products">
+        <div class="title">MORE PRODUCTS</div>
+        <div  class="roww">
+        <div class="small">
+            <?php
+            $sql = $conn->query("SELECT * FROM goods LIMIT 3 OFFSET 3");
+            if($sql->num_rows > 0) {
+                while($data = $sql->fetch_array()) {
+                echo "
+                <div class='col'>
+                    <img id='images' src='". $data['image_url']. "'>
+                    <div class='star'>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star'></i>
+                        <i class='bx bxs-star-half' ></i>
+                        <i class='bx bx-star'></i>
+                    </div>
+                    <div class='name'>". $data['name']. "</div>
+                    <div class='price'>". $data['price']. "</div>
+                    <a href='detailed.php?id=". $data['id']. "' class='btn'>See more</a>
+                </div> 
+                ";
+                }
+                
+            }else {
+                echo "
+                <div class='small'>
+                <p>No product available yet!</p>
+                </div>                
+                ";
+            }
+            ?>
+        </div>
+
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer" class="foot">
+        <div class="row">
+            <div class="author">
+                <p class="copyright-text">© ChizzyB COUTURE</p>
+                <div class="credits">Designed by paulchidiadi@gmail.com</div>
+            </div>
+
+            <div class="foot-nav">
+                <ul class="list">
+                    <li class="list-item">
+                        <a href="sell.php#home">Home</a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="#products">Products</a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="sell.php#contact">Contact</a>
+                    </li>
+
+                    <li class="list-item">
+                        <a href="cart.php">Cart</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+  </div>
+
 </body>
 </html>
