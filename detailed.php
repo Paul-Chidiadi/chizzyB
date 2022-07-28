@@ -8,7 +8,12 @@
         exit();
     }
     $email = $_SESSION['email'];
-    $images = $_SESSION['image'];
+
+    #received product id from sell.php and use as reference to get product from database
+    if(isset($_GET['id'])) {
+        $my_id = $_GET['id'];
+    }
+    
 ?>
 <!DOCTYPE html>
 <html>
@@ -73,6 +78,17 @@
     <!-- MAIN BODY -->
     <div class="main">
 
+        <!-- get product detail where id is the id variable collected from sell.php using GET method -->
+        <?php
+            $sql = $conn->query("SELECT * FROM goods WHERE id='$my_id'");
+            while($data = $sql->fetch_array()) {
+                $images = $data['image_url'];
+                $name = $data['name'];
+                $price = $data['price'];
+                $detail = $data['detail'];
+            }
+        ?>
+
 
         <!-- PRODUCT DETAIL -->
         <div class="row">
@@ -87,15 +103,6 @@
                     <i class='bx bxs-star-half' ></i>
                     <i class='bx bx-star'></i>
                 </div>
-                <!-- get product detail where image is the image variable collected from SESSION -->
-                <?php
-                    $sql = $conn->query("SELECT * FROM goods WHERE image_url='$images'");
-                    while($data = $sql->fetch_array()) {
-                        $name = $data['name'];
-                        $price = $data['price'];
-                        $detail = $data['detail'];
-                    }
-                ?>
                 <div class='name'><?php echo $name;?></div>
                 <div class='price'><?php echo $price;?></div>
                 <label>Product Detail</label>
@@ -109,7 +116,7 @@
                     <option value="Small">Small</option>
                 </select>
                 <input class="qty" type="number" value="1">
-                <a href="cart.php" class="btn">Add to cart &#8594;</a>
+                <a href="cart.php?id=<?php echo $my_id;?>" class="btn">Add to cart &#8594;</a>
 
             </div>
         </div>
@@ -135,6 +142,7 @@
                         </div>
                         <div class='name'>". $data['name']. "</div>
                         <div class='price'>". $data['price']. "</div>
+                        <a href='detailed.php?id=". $data['id']. "' class='btn'>See more</a>
                     </div> 
                     ";
                     }

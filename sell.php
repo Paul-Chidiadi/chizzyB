@@ -9,13 +9,6 @@
     }
     $email = $_SESSION['email'];
 
-    if (isset($_POST['imagePHP'])) {
-      $image = $_POST['imagePHP']; 
- 
-      $_SESSION['image'] = $image;
-      exit('<font color="green">success</font>');
-    }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -105,7 +98,7 @@
                 while($data = $sql->fetch_array()) {
                   echo "
                   <div class='col'>
-                    <img id='images' src='". $data['image_url']. "'>
+                    <img class='images' src='". $data['image_url']. "'>
                     <div class='star'>
                       <i class='bx bxs-star'></i>
                       <i class='bx bxs-star'></i>
@@ -115,6 +108,7 @@
                     </div>
                     <div class='name'>". $data['name']. "</div>
                     <div class='price'>". $data['price']. "</div>
+                    <a href='detailed.php?id=". $data['id']. "' class='btn'>See more</a>
                   </div> 
                   ";
                 }
@@ -134,7 +128,7 @@
                 while($data = $sql->fetch_array()) {
                   echo "
                   <div class='col'>
-                    <img id='images' src='". $data['image_url']. "'>
+                    <img class='images' src='". $data['image_url']. "'>
                     <div class='star'>
                       <i class='bx bxs-star'></i>
                       <i class='bx bxs-star'></i>
@@ -144,6 +138,7 @@
                     </div>
                     <div class='name'>". $data['name']. "</div>
                     <div class='price'>". $data['price']. "</div>
+                    <a href='detailed.php?id=". $data['id']. "' class='btn'>See Details</a>
                   </div> 
                   ";
                 }
@@ -255,36 +250,7 @@
 
     <!-- Javascript code and files/libraries -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-    <script>
-      $(document).ready( function() {
-
-        //onclick function for taking user to detiled product page
-        $('#images').on('click', () => {
-          let image = $('#images').attr('src');
-
-          if (images != ""){
-            $.ajax(
-                {
-                  url: 'sell.php',
-                  method: 'POST',
-                  data: {
-                    sell: 1,                   
-                    imagePHP: image
-                  },
-                  success: function (response) {
-                      if (response.indexOf('success') >= 0) {
-                        window.location = 'detailed.php';
-                      }
-                  },
-                  dataType: 'text'
-                }
-              );
-          }
-        });
-      });
-
-    </script>
+    
 
   </body>
 </html>
