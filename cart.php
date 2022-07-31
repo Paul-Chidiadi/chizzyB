@@ -86,9 +86,25 @@
           </tr> 
         </thead>
         <tbody id="body">
-            
+            <!-- javaScript generated elements with data from IndexDB local storage database goes in here -->
         </tbody>
       </table>     
+    </div>
+    <div class="total">
+      <table>
+        <tr>
+          <td>Subtotal</td>
+          <td id="sub">$0</td>
+        </tr>
+        <tr>
+          <td>Tax</td>
+          <td id="tax">$0</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td id="total">$0</td>
+        </tr>
+      </table>
     </div>
     
     <!-- PRODUCT SECTION -->

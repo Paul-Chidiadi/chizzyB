@@ -55,7 +55,7 @@ body {
   padding: 0px 25px;
   display: flex;
   justify-content: center;
-  align-items: centers;
+  align-items: center;
 }
 .header nav ul {
   display: flex;
@@ -206,7 +206,7 @@ body {
     padding: 0px 25px;
     display: flex;
     justify-content: center;
-    align-items: centers;
+    align-items: center;
   }
 }
 @media screen and (max-width: 500px) {
@@ -732,7 +732,7 @@ body {
 }
 .contain .info p {
   font-size: 14px;
-  font-weight: light;
+  font-weight: normal;
   color: var(--black);
 }
 .contain .form {
@@ -982,4 +982,22 @@ body {
   padding: 5px;
   text-align: left;
   overflow: hidden;
+}
+.rowt table thead th:last-child {
+  text-align: center;
+}
+.total {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.total table {
+  border-top: 3px solid var(--gold);
+  width: 100%;
+  max-width: 470px;
+  font-size: 13px;
+  font-weight: bold;
+}
+td:last-child {
+  text-align: right;
 }
