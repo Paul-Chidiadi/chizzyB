@@ -1001,3 +1001,18 @@ body {
 td:last-child {
   text-align: right;
 }
+.botn {
+  background-color: var(--gold);
+  display: block;
+  color: var(--white);
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 20px;
+  padding: 9px 30px;
+  margin: 20px auto 10px;
+  width: fit-content;
+  transition: 0.5s;
+}
+.botn:hover {
+  background-color: red;
+}

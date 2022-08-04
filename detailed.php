@@ -116,6 +116,7 @@
                     <option value="Small">Small</option>
                 </select>
                 <input class="qty" type="number" value="1">
+                <input type="text" id="ided" class="select" value="Product_id: <?php echo $my_id;?>" readonly>
                 <a href="cart.php" class="btn">Add to cart &#8594;</a>
 
             </div>

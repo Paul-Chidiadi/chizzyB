@@ -73,7 +73,9 @@
 
   <!-- MAIN BODY -->
   <div class="main">
+ 
 
+    <!-- show cart items -->
     <div class="rowt">
       <table>
         <thead>
@@ -106,6 +108,10 @@
         </tr>
       </table>
     </div>
+    <!-- checkout button -->
+    <input type="hidden" id="email" name="order_email" value="<?php echo $email;?>">
+    <input type="hidden" id="products_id" name="order_product">
+    <input type="button" id="check" name="order_send" class="botn" value="Proceed to checkout">
     
     <!-- PRODUCT SECTION -->
     <div id="products" class="products">
@@ -180,7 +186,7 @@
 
   <!-- Javascript code and files/libraries -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    
+  <script src="https://checkout.flutterwave.com/v3.js" ></script>
   <script src="javaScript/receive.js"></script>
 
 </body>
