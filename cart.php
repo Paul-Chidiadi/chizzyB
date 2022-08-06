@@ -109,9 +109,14 @@
       </table>
     </div>
     <!-- checkout button -->
-    <input type="hidden" id="email" name="order_email" value="<?php echo $email;?>">
-    <input type="hidden" id="products_id" name="order_product">
-    <input type="button" id="check" name="order_send" class="botn" value="Proceed to checkout">
+    <form action="pay.php" method="post">
+      <input type="hidden" id="email" name="order_email" value="<?php echo $email;?>">
+      <input type="hidden" id="products_id" name="order_product">
+      <input type="hidden" id="products_info" name="order_productInfo">
+      <input type="hidden" id="price" name="order_total">
+      <input type="submit" id="check" name="order_send" class="botn" value="Proceed to checkout">
+    </form>
+    
     
     <!-- PRODUCT SECTION -->
     <div id="products" class="products">
