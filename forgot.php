@@ -19,7 +19,7 @@
     
             $mail = new PHPMailer();
             $mail->addAddress($email, $name);
-            $mail->setFrom("chizzyB@gmail.com", "CHIZZYB COUTURE");
+            $mail->setFrom("chizzyBcouture@gmail.com", "CHIZZYB COUTURE");
             $mail->Subject = "RESET PASSWORD";
             $mail->isHTML(true);
             $mail->Body = "

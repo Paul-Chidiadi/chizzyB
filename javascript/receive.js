@@ -1,4 +1,11 @@
 const tbody = document.querySelector("#body");
+// get the elements from cart.php
+let subTotal = document.querySelector("#sub");
+let tax = document.querySelector("#tax");
+let total = document.querySelector("#total");
+let allProductsId = document.querySelector("#products_id");
+let allProductsInfo = document.querySelector("#products_info");
+let price = document.querySelector("#price");
 
 // Create an instance of a db object for us to store the open database in
 let db;
@@ -18,6 +25,7 @@ openRequest.addEventListener("success", () => {
 
   // Run the displayData() function to display the notes already in the IDB
   displayData();
+  getAllCartItems();
 });
 
 // Define the displayData() function
@@ -64,6 +72,7 @@ function displayData() {
       data1.style.justifyContent = "left";
       data1.style.alignItems = "center";
       data1.style.padding = "5px";
+      data2.style.padding = "5px";
       section.style.display = "flex";
       section.style.flexDirection = "column";
       trow.style.backgroundColor = "rgba(0, 0, 0, 0.015)";
@@ -72,14 +81,15 @@ function displayData() {
       data3.style.fontWeight = "bold";
       data4.style.fontWeight = "bold";
 
-      imge.style.width = "90px";
-      imge.style.height = "90px";
-      imge.style.borderRadius = "7px";
+      imge.style.width = "80px";
+      imge.style.height = "80px";
+      imge.style.borderRadius = "5px";
       nam.style.padding = "5px";
       pric.style.padding = "5px";
       pric.style.color = "red";
       inputt.style.width = "40px";
-      inputt.setAttribute("type", "number");
+      // inputt.setAttribute("type", "number");
+      inputt.setAttribute("readonly", "readonly");
 
       data1.appendChild(imge);
       data1.appendChild(section);
@@ -98,12 +108,7 @@ function displayData() {
       pric.textContent = cursor.value.price;
       inputt.value = cursor.value.qty;
       data3.textContent = cursor.value.size;
-
-      // calculating the sub-total by multiplying prize by the inputed quanty
-      // slice the price string first to get only the number
-      let myPrice = pric.textContent.slice(1);
-      let prod = myPrice * inputt.value;
-      data4.textContent = "$" + prod;
+      data4.textContent = cursor.value.sub;
 
       // Store the ID of the data item inside an attribute on the trow, so we know
       // which trow (tr) it corresponds to. This will be useful later when we want to delete items
@@ -112,13 +117,14 @@ function displayData() {
       // Create a button and place it inside each data1 in the trow
       const deleteBtn = document.createElement("button");
       trow.appendChild(deleteBtn);
-      deleteBtn.textContent = "remove";
-      deleteBtn.style.fontSize = "8px";
-      deleteBtn.style.backgroundColor = "red";
-      deleteBtn.style.padding = "5px";
-      deleteBtn.style.borderRadius = "5px";
-      deleteBtn.style.color = "white";
-      deleteBtn.style.fontWeight = "bold";
+      deleteBtn.innerHTML = "&times;";
+      deleteBtn.style.fontSize = "30px";
+      deleteBtn.style.backgroundColor = "transparent";
+      deleteBtn.style.padding = "3px";
+      // deleteBtn.style.borderRadius = "5px";
+      deleteBtn.style.border = "none";
+      deleteBtn.style.color = "black";
+      deleteBtn.style.fontWeight = "normal";
       deleteBtn.style.marginBottom = "10px";
 
       // Set an event handler so that when the button is clicked, the deleteItem()
@@ -159,6 +165,9 @@ function deleteItem(e) {
     e.target.parentNode.parentNode.removeChild(e.target.parentNode);
     console.log(`Note ${noteId} deleted.`);
 
+    // call the getCartItems function again so we call update subTotal, tax and total when an item is deleted
+    getAllCartItems();
+
     // Again, if tbody is empty, display a 'No notes stored' message
     if (!tbody.firstChild) {
       const trow = document.createElement("tr");
@@ -166,4 +175,80 @@ function deleteItem(e) {
       tbody.appendChild(trow);
     }
   });
+}
+
+// Get an array with all the data in objectStore
+function getAllCartItems() {
+  const request = db.transaction("cart_os").objectStore("cart_os").getAll();
+
+  request.onsuccess = () => {
+    const items = request.result;
+    console.log(items);
+
+    //getting product ids of all the products in the cart storage
+    const getProductsId = items.map((item) => {
+      // get all the products id from the cart storage and remove the Product_id: prefix by using slice
+      return item.product_id.slice(12);
+    });
+
+    //calculating total, subtotal and tax
+    const getSubTotal = items.map((item) => {
+      // get all the subtotal and slice them removing the $ sign
+      // convert it to an integer too
+      return parseInt(item.sub.slice(1));
+    });
+    // using for loop to sum the getSUbTotal array
+    let sum = 0;
+    for (let i = 0; i < getSubTotal.length; i++) {
+      sum += getSubTotal[i];
+    }
+    //let tax be 1% of the subtotal and rounf off to 2 decimal places
+    let num = 0.01 * sum;
+    const taxs = num.toFixed(2);
+    // let total be the sum of subtotal and tax
+    let totals = num + sum;
+
+    // display sum in subtotal field
+    subTotal.textContent = "$" + sum;
+    // display taxs in tax field
+    tax.textContent = "$" + taxs;
+    // display totals in total field
+    total.textContent = "$" + totals;
+    // display all the products id in allProductsId
+    allProductsId.value = getProductsId;
+    // display all the products in allProductsInfo
+    allProductsInfo.value = JSON.stringify(items);
+    // display totals in price field
+    price.value = totals;
+
+    //comment out javascript rave inline function and use PHP (Backend)flutter standard @ pay.php
+    //CODE FOR FLUTTERWAVE CHECKOUT
+    /*let email = document.querySelector("#email");
+    let productsId = document.querySelector("#email");
+    let checkout = document.querySelector("#check");
+
+    checkout.addEventListener("click", () => {
+      //set configurations
+      FlutterwaveCheckout({
+        public_key: "FLWPUBK_TEST-17d61118dad1cc2518d8235b90003f78-X",
+        tx_ref: "chizzy_" + Math.floor(Math.random() * 1000000000 + 1),
+        amount: totals,
+        currency: "USD",
+        redirect_url: "chizzyB.com/cart.php",
+        customer: {
+          email: email.value,
+        },
+        callback: function (data) {
+          console.log(data);
+        },
+        customizations: {
+          title: "CHIZZYB COUTURE",
+          description: "Always giving you the best",
+        },
+      });
+    });*/
+  };
+  request.onerror = (err) => {
+    console.error(`Error to ge all items: ${err}`);
+  };
 }

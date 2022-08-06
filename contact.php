@@ -10,7 +10,7 @@ if(isset($_POST['submit'])) {
     $mailFrom = $_POST['email'];
     $message = $_POST['message'];
 
-    $mailTo = "chizzyB@gmail.com";
+    $mailTo = "chizzyBcouture@gmail.com";
     $headers = "From: ".$mailFrom;
     $txt = "You received a messsage from".$name.".\n\n".$message;
 
@@ -30,7 +30,7 @@ if(isset($_POST['submition'])) {
     $mailFrom = $_POST['email'];
     $message = $_POST['message'];
 
-    $mailTo = "chizzyB@gmail.com";
+    $mailTo = "chizzyBcouture@gmail.com";
     $headers = "From: ".$mailFrom;
     $txt = "You received a messsage from".$name.".\n\n".$message;
 
