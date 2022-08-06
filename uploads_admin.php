@@ -257,14 +257,11 @@
                         <thead>
                             <tr>
                                 <th>id</th>
-                                <th>orderNumber</th>
+                                <th>Transaction Id</th>
                                 <th>email</th>   
-                                <th>Product name</th>  
-                                <th>Product price</th>
-                                <th>Quantity</th>  
-                                <th>Total amount</th>
-                                <th>Product detail</th> 
-                                <th>Image</th> 
+                                <th>Purchased Products Info</th> 
+                                <th>Purchased Products Id</th>  
+                                <th>Amount Paid</th>
                             </tr> 
                         </thead>
                         <tbody>
@@ -274,14 +271,11 @@
                                 while($data = $sql->fetch_array()) {
                                    echo "<tr>
                                             <td>". $data['id']. "</td>
-                                            <td>". $data['orderNumber']. "</td>  
+                                            <td>". $data['transaction_id']. "</td>  
                                             <td>". $data['email']. "</td>  
-                                            <td>". $data['name']. "</td>  
-                                            <td>" . $data['price']. "</td>
-                                            <td>". $data['quantity']. "</td>  
-                                            <td>" . $data['total_amt']. "</td>
-                                            <td>". $data['detail']. "</td> 
-                                            <td>". $data['image_url']. "</td>      
+                                            <td>". $data['product_info']. "</td>  
+                                            <td>". $data['product_id']. "</td>  
+                                            <td>" . $data['amount_paid']. "</td>    
                                         </tr>
                                     ";
                                 }

@@ -42,8 +42,8 @@
                     $productId = $res->data->meta->productid;
                     $priceDb = $res->data->meta->price;
                     # Insert  all data into Database
-                    $sql = "INSERT INTO ready_to_wear (email, amount_paid, product_id, product_info) 
-                    VALUES ('$emailDb', '$priceDb', '$productId', '$productInfo')";
+                    $sql = "INSERT INTO ready_to_wear (transaction_id, email, amount_paid, product_id, product_info) 
+                    VALUES ('$tx_id', '$emailDb', '$priceDb', '$productId', '$productInfo')";
                     if (mysqli_query($conn, $sql)) {
                         echo '<br><br>Click <a href="sell.php"><b>HERE</b></a> to go to home page';
                     } else {
