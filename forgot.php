@@ -19,15 +19,15 @@
     
             $mail = new PHPMailer();
             $mail->addAddress($email, $name);
-            $mail->setFrom("chizzyBcouture@gmail.com", "CHIZZYB COUTURE");
+            $mail->setFrom("chizzybcouture@gmail.com", "Chizzy Couture");
             $mail->Subject = "RESET PASSWORD";
             $mail->isHTML(true);
             $mail->Body = "
             Hi, <br><br>
             
             In order to reset your password, please click the link below<br>
-            <a href='chizzyB.com/resetpassword.php?email=$email&token=$token'>
-                chizzyB.com/resetpassword.php?email=$email&token=$token
+            <a href='bcouture.epizy.com/resetpassword.php?email=$email&token=$token'>
+            bcouture.epizy.com/resetpassword.php?email=$email&token=$token
             </a> <br><br> 
 
             Kind Regards,<br>

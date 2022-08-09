@@ -64,7 +64,7 @@
             
                     $mail = new PHPMailer();
                     $mail->addAddress($email, $name);
-                    $mail->setFrom("chizzyB@gmail.com", "CHIZZYB COUTURE");
+                    $mail->setFrom("chizzybcouture@gmail.com", "Chizzy Couture");
                     $mail->Subject = "EMAIL VERIFICATION";
                     $mail->isHTML(true);
                     $mail->Body = "

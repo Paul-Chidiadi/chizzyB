@@ -7,11 +7,6 @@
         $productInfo = $_POST['order_productInfo'];
         $price = $_POST['order_total'];
 
-        echo $email;
-        echo $productid;
-        echo $productInfo;
-        echo $price;
-
         # prepare wave request
         $request = [
             'tx_ref' => 'chizzy_'.generateDigits(9),
