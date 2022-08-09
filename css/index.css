@@ -611,7 +611,6 @@ body {
   margin: 30px 20px;
   border-radius: 10px;
   height: 110px;
-  background-color: none;
   overflow: hidden;
   transition: all 0.4s ease-in-out;
 }
@@ -1273,7 +1272,6 @@ body {
 /* Media query for sidebar and main section */
 @media screen and (max-width: 700px) {
   .sidebar {
-    width: 85px;
     background-color: var(--black);
     box-shadow: 3px 0 5px 0 var(--black);
     height: 100%;

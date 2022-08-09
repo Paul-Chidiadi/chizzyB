@@ -4,8 +4,8 @@
     if(isset($_GET['status'])) {
         // check payment status
         if($_GET['status'] == 'cancelled') {
-            # take user back to cart.php page
-            header('Location: cart.php');
+            # take user back to cart.php page with a get message of cancelled
+            header('Location: cart.php?rave=cancelled');
         } else if ($_GET['status'] == 'successful') {
             
             $tx_id = $_GET['transaction_id'];
@@ -52,6 +52,9 @@
                 }else {
                     echo 'Fraud transaction detected';
                 }
+            }else if($_GET['status'] == 'failed') {
+                # take user back to cart.php page with a get message of failed
+                header('Location: cart.php?rave=failed');
             }else {
                 echo 'Payment can not be processed, try again later';
             }
