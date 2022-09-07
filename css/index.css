@@ -1208,6 +1208,38 @@ body {
     font-size: 15px;
   }
 }
+@media screen and (max-width: 470px) {
+  .store-form {
+    width: 90%;
+  }
+  .store-form .storeForm {
+    padding: 30px 10px;
+  }
+  .store-form-1 .storeForm .btn {
+    width: 75%;
+  }
+  .store-form .storeForm .btn {
+    width: 75%;
+  }
+  .store-form .storeForm div {
+    width: 100%;
+  }
+  .store-form-1 {
+    width: 90%;
+  }
+  .store-form .storeForm .formcontrol {
+    width: 90%;
+  }
+  .store-form .storeForm .formcontrol.more {
+    width: 90%;
+  }
+  .speak .store-head h1 {
+    font-size: 35px;
+  }
+  .speak .store-head p {
+    font-size: 12px;
+  }
+}
 /* STYLING FOR MAIN STORE END */
 
 /* POP UP SECTION */
@@ -1267,6 +1299,12 @@ body {
 #overlay.active {
   opacity: 1;
   pointer-events: all;
+}
+/* media query for pop up section */
+@media screen and (max-width: 650px) {
+  .pop {
+    width: 80%;
+  }
 }
 
 /* Media query for sidebar and main section */
