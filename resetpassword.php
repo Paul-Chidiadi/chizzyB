@@ -14,8 +14,8 @@
             # generate new password
             $newpassword = generateDigits(7);
             # encrypt new password
-            $encrypt_password = password_hash($newpassword, PASSWORD_BCRYPT);
-            # $encrypt_password = md5($newpassword);--> another way of hashing password.
+            # $encrypt_password = password_hash($newpassword, PASSWORD_BCRYPT);--> another way of hashing password.
+            $encrypt_password = md5($newpassword);
             $conn->query("UPDATE customer_info SET token='nil', password='$encrypt_password' WHERE email='$email'");
 
             echo "Your new password is <b>$newpassword<b> <br> 

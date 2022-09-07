@@ -15,8 +15,9 @@
         # code...
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $encrypt_password = md5($password);
 
-        $data = $conn->query("SELECT id from customer_info WHERE email='$email' AND password='$password'");
+        $data = $conn->query("SELECT id from customer_info WHERE email='$email' AND password='$encrypt_password'");
         if($data->num_rows > 0) {
             $sql = $conn->query("SELECT * FROM customer_info WHERE email= '$email'");
             $data = $sql->fetch_array();

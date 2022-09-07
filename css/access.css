@@ -131,3 +131,12 @@ body {
   text-align: center;
   font-family: monospace;
 }
+/* MEDIA QUERY FOR ACCESS */
+@media screen and (max-width: 500px) {
+  .access.active {
+    width: 90%;
+  }
+  .access-form {
+    padding: 20px 5px 30px;
+  }
+}
