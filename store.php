@@ -62,7 +62,7 @@
     <title>CHIZZYB | STORE | ORDER</title>
 
     <!--MAin CSS file-->
-    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/index.css?<?php echo time(); ?>" />
     <!--BOXICONS CSS-->
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"

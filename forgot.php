@@ -60,7 +60,7 @@
     <title>CHIZZYB | FORGOT PASSWORD</title>
 
     <!--MAin CSS file-->
-    <link rel="stylesheet" href="css/access.css" />
+    <link rel="stylesheet" href="css/access.css?<?php echo time(); ?>" />
     <!--BOXICONS CSS-->
     <link
       href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
