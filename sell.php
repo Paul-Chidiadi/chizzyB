@@ -156,8 +156,10 @@
         </div>
       </div>
 
-      <!-- CONTACT -->
-      <div id="contact" class="contacts">
+
+    </div>
+    <!-- CONTACT -->
+    <div id="contact" class="contacts">
         <div class="call">
           <h1>CONTACT US</h1>
           <div class="contain">
@@ -243,9 +245,6 @@
           </div>
         </div>
       </footer>
-
-
-    </div>
 
   </body>
 </html>

@@ -12,6 +12,9 @@
   --black: #202026;
   --fblac: rgb(70, 64, 64);
 }
+img {
+  object-fit: cover;
+}
 body {
   position: relative;
   min-height: 100vh;

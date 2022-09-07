@@ -5,10 +5,10 @@
 
     session_start();
     # if user is already logged in take them to the store already(sell.php)
-    /*if(isset($_SESSION['loggedIN'])) {
+    if(isset($_SESSION['loggedIN'])) {
         header('Location: sell.php');
         exit();
-    }*/
+    }
 
     # LET USER LOGIN
     if (isset($_POST['log'])) {
